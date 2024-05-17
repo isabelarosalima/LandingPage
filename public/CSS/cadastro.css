@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+  }
+
+  html, body, input {
+    font-family: "Tomorrow";
+    font-weight: 500;
+    height: 100%; 
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* estou alinhando tudo no centro, pois se deixo apenas o justify-content: center;, apenas o conteiner vai para o centro da onde estiver, não o centro da tela */
+    font-size: 13.5px;
+    color: #B3B5D2;
+    background: #0F1020;
+  }
+  
+   h1 {
+    font-size: 24px;
+    /* flex-grow: 1;
+    flex-shrink: 1;
+    display: flex; */
+    width: 100%;
+    padding-bottom: 56px;;
+  }
+   
+  /* .container {
+    width: 300px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 70px;
+  } */
+  
+  /* .editor-field {
+    width: 300px;
+    height: 64px;
+    position: relative;
+    margin: 14px 0;
+  } */

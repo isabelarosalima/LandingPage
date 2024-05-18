@@ -1,44 +1,168 @@
-* {
-    box-sizing: border-box;
-  }
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 
-  html, body, input {
-    font-family: "Tomorrow";
-    font-weight: 500;
-    height: 100%; 
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+
+/* estou deixando o body flex para que eu possa mexer todas as divs e os itens dentro do body como um todo */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+  width: 100%;
+  overflow: hidden;
+}
+
+img{
+  position: relative;
+  display: flex;
+  align-items: first baseline;
+  right: 38vh;
+  bottom: 320px;
+  width:48px;
+  height: 48px;
+} 
+
+/* para mexer especificamente nessa div, preciso deixar flex e decidir a sua orientação */
+.ring {
+  position: relative;
+  width: 630px;
+  height: 640px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* estou alinhando tudo no centro, pois se deixo apenas o justify-content: center;, apenas o conteiner vai para o centro da onde estiver, não o centro da tela */
-    font-size: 13.5px;
-    color: #B3B5D2;
-    background: #0F1020;
+  /* o right me ajuda a não criar mais margens, apenas movendo o content */
+}
+
+.ring i{
+  position: absolute;
+  inset: 0;
+  /* age como uma margin, deslocando a div fisicamente.
+  deixo 0 para definir sua margim em relação a div pai (body).
+  */
+  border: 2px solid #fff;
+  transition: 0.5s;
+}
+
+/* a pseudo classe nth-child age como um seletor de elementos filhos de acordo com a sua posição entre os elementos irmãos */
+.ring i:nth-child(1) {
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;;
+  animation: animate 6s linear infinite;
+}
+.ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate 4s linear infinite;
+} 
+.ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 10s linear infinite;
+}
+ /* o infinite da animação faz com que não pare de executar oq foi pedido */
+.ring:hover i{
+  /* a var busca as cores definida no html */
+  border: 6px solid var(--clr);
+  filter: drop-shadow(0 0 20px var(--clr));
+  /* posso mudar o contraste e aplicas outros efeitos, como o blur.
+  o drop-shadow aplica efeito de sombra
+  */
+}
+
+/*Keyframes controla as etapas em uma sequência de animação definindo estilos*/
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
   }
-  
-   h1 {
-    font-size: 24px;
-    /* flex-grow: 1;
-    flex-shrink: 1;
-    display: flex; */
-    width: 100%;
-    padding-bottom: 56px;;
+  100% {
+    transform: rotate(360deg);
   }
-   
-  /* .container {
-    width: 300px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-top: 70px;
-  } */
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+/* os numeros correspondem com a velodidade escolhida */
+
+.login {
+  position: absolute;
+  /* preciso adicionar absolute para sobresair as outras divs, caso contrário não consigo clicar em nada; */
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+  /* aplica uma separação entre eles */
+}  
+ 
+.login h2 {
+  font-size: 2em;
+  color: #fff;
+}
+
+ .login .inputBx input {
+  position: relative;
+  width: 310px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #ececec;
+  border-radius: 20px;
+  font-size: 1em;
+  color: rgba(255, 255, 255, 0.75);
+  box-shadow: none;
+  outline: none;
+} 
+
+.login .inputBx input[type="submit"] {
+  background: linear-gradient(45deg, #df1d5e, #ead51a);
+  border: none;
+  cursor: pointer;
+  font-weight: 800px;
+  color: #fff;
+  transition: all 0.5s;
+}
+.inputBx input[type="submit"]:hover {
+  background: linear-gradient(45deg, #e0185b, #e3cd0e);
+ 
+}
+
+.login .inputBx input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.login .links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
   
-  /* .editor-field {
-    width: 300px;
-    height: 64px;
-    position: relative;
-    margin: 14px 0;
-  } */
+}
+
+.login .links p {
+  color: #fff;
+  font-size: small;
+  text-decoration: none;
+} 
+
+.login .links a  {
+  color: #fff;
+  text-decoration: none; 
+} 
+
+.login .links a:hover  {
+  color: #d7d5d5;
+  
+} 

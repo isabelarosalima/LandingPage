@@ -1,0 +1,14 @@
+VALIDAÇÃO
+- utilizar vetor e for
+- utilizar trim()
+- indicador de certo ou errado
+- gerador de username e senha
+
+  var nome= document.querySelector('#userName');
+  let validUser = false;
+
+  var nome= document.querySelector('#emailCelular');
+  let validEmailCelular = false;
+
+  var nome= document.querySelector('#input_senha');
+  let validSenha = false;

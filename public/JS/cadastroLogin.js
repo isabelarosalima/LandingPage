@@ -1,82 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="CSS/cadastro.css">
-  <link rel="stylesheet" href="JS/cadastroLogin.js">
-</head>
-<body>
-  <a href="login.html"><img src="IMG/seta-para-a-esquerda.png" alt="" ></a>
-  <!--a div ring começa aqui-->
-  <div class="ring">
-    <i style="--clr:#ff0051;"></i>
-    <i style="--clr:#0078d4;"></i>
-    <i style="--clr:#e69602;"></i>
-    <!--a div do login começa aqui -->\
-    <div class="login" id="login">
-      <h2>JUNTE-SE A NÓS!</h2>
-      <span>FAÇA PARTE DESSA SOCIEDADE TECNOLÓGICA</span>
-      <div class="inputBx">
-        <input type="text" placeholder="Nome completo" style="  padding-left: 20px;" id="input_nomeCompleto">
-      </div>
-
-      <div class="mensagemErroNome"></div>
-
-      <div class="inputBx">
-        <input type="text" placeholder="Username" style="  padding-left: 20px; " 
-        id="input_userName">
-      </div>
-
-      <div class="mensagemErroUser">Mensagem</div>
-
-      <div class="inputBx">
-        <input type="text" placeholder="E-mail ou celular" style="  padding-left: 20px;"
-        id="input_emailCelular">
-      </div>
-
-      <div class="mensagemErroEmailCelular">Mensagem</div>
-
-      <div class="inputBx">
-        <input type="password" placeholder="Senha" style="  padding-left: 20px; "
-        id="input_senha">
-      </div>
-
-      <div class="mensagemErroSenha">Mensagem</div>
-
-      <div class="inputBx">
-        <input type="submit" onclick="cadastrar()" value="CADASTRAR" style="font-size: small;" >
-      </div>
-
-      <div class="links">
-        <p>Já possui conta? <a href="login.html" style="margin-left: 2px;">logar</a> </p> 
-      </div>
-
-    </div>
-  </div>
-</body>
-</html>
-<script>
 // Seleção dos elementos do DOM para facilitar o acesso e a manipulação desses elementos
-const login = document.getElementById('login');
-const nomeCompleto = document.getElementById('input_nomeCompleto');
-const userName = document.getElementById('input_userName');
-const emailCelular = document.getElementById('input_emailCelular');
-const senha = document.getElementById('input_senha');
+const login = document.getElementById('login')
+const nomeCompleto = document.getElementById('input_nomeCompleto')
+const userName = document.getElementById('input_userName')
+const emailCelular = document.getElementById('input_emailCelular')
+const senha = document.getElementById('input_senha')
 
-let validNome = false;
+const nomeDiv = document.getElementById('mensagemErroNome')
+
+
+let validNome = false
 let validUser = false;
 let validEmailCelular = false;
 let validSenha = false;
 
 nomeCompleto.addEventListener('keyup', () => {
     if(nomeCompleto.value.length <= 2){
-      mensagemErroNome.setAttribute('style', 'color: red')
-      mensagemErroNome.innerHTML = 'Insira no mínimo 3 caracteres'
+        nomeDiv.innerHTML = 'Insira no mínimo 3 caracteres'
         validNome = false
     }else{
-      mensagemErroNome.setAttribute('style', 'display: none')
+        nomeDiv.setAttribute('style', 'display: none')
         validNome = true
     }
 })
@@ -194,4 +136,3 @@ function cadastrar() {
 // cardErro.style.display = "none";
 */
 // }
-</script>

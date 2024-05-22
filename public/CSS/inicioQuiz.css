@@ -1,0 +1,193 @@
+@font-face {
+    font-family: MFF;
+    src:url('https://files.jcink.net/uploads2/rainshine/fonts/MonsterFriendFore.otf'); 
+  } 
+  
+  @font-face {
+    font-family: RH;
+    src:url('https://files.jcink.net/uploads2/rainshine/fonts/rainyhearts.ttf'); 
+  }
+
+  
+:root {
+    --darker: #101010;
+    --dark: #171717;
+    --light: #cbcbcb;
+    
+    --border: RGBA(255, 255, 255, 0.15);
+    
+    --accent: magenta;
+    --support: cyan;
+    --feature: #dabc87;
+    
+    --fontTitle: MFF; 
+    --fontSubtitle: RH;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    /* box-sizing: border-box; */
+    transition: all ease 0.25s;
+    -moz-transition: all ease 0.25s;
+  }
+ 
+  body {
+    overflow: hidden;
+    background-color: var(--darker);
+    color: var(--dark);
+  }
+  
+    
+   .headerImg {
+    display: flex;
+    width: 42.5%;
+    height: 117vh;
+    border-right: solid 4px var(--border);
+  }
+  
+
+
+ .titlePanel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://s12.gifyu.com/images/SZjaj.png);
+    background-size: cover;
+  }
+
+
+  #header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    height: 630px;
+    background-color: var(--dark);
+    background-image: url();
+    background-size: cover;
+    background-position: bottom;
+    border-bottom: solid 4px var(--border);
+  }
+  
+
+  
+  #header #titleHeader {
+    box-shadow: 
+          120px 20px #000000,
+          250px 40px #000000,
+          270px 40px #000000,
+          310px 40px #000000,
+          210px 60px #000000,
+          10px 70px #000000,
+          20px 70px #000000,
+          30px 70px #000000,
+          40px 70px #000000,
+          50px 70px #000000,
+          60px 70px #000000,
+          70px 70px #000000,
+          80px 70px #000000,
+          90px 70px #000000,
+          100px 70px #000000,
+          110px 70px #000000,
+          120px 70px #000000,
+          130px 70px #000000,
+          140px 70px #000000,
+          150px 70px #000000,
+          160px 70px #000000,
+          170px 70px #000000,
+          180px 70px #000000,
+          190px 70px #000000,
+          200px 70px #000000,
+          210px 70px #000000,
+          220px 70px #000000,
+          230px 80px #000000,
+          240px 90px #000000,
+          300px 90px #000000,
+          320px 90px #000000,
+          250px 100px #000000,
+          320px 100px #000000,
+          260px 110px #000000,
+          270px 110px #000000,
+          280px 110px #000000,
+          290px 110px #000000,
+          300px 110px #000000,
+          310px 110px #000000,
+          320px 110px #000000;
+  }
+  
+  #header .titleInfo {
+    position: absolute;
+    z-index: 2;
+    left: -30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    width: 83%;
+    max-width: 642px;
+    box-shadow: 
+      16px 0 var(--dark), 
+      -16px 0 var(--dark), 
+      0 -16px var(--dark), 
+      0 16px var(--dark),
+      4px 0 0 8px var(--dark), 
+      -4px 0 0 8px var(--dark), 
+      0 -4px 0 8px var(--dark), 
+      0 4px 0 8px var(--dark),
+      20px 0 var(--feature), 
+      -20px 0 var(--feature), 
+      0 -20px var(--feature), 
+      0 20px var(--feature),
+      0 0 0 12px var(--feature), 
+      0 8px 0 8px var(--feature), 
+      0 -8px 0 8px var(--feature),
+      8px 0 0 8px var(--feature), 
+      -8px 0 0 8px var(--feature);
+  }
+  
+  #header #titleInfoText {
+    padding: 30px;
+    background: var(--dark);
+  }
+  
+  #header h1 { 
+    color: var(--light);
+    font: 500 80px/120% var(--fontTitle);
+    text-transform: uppercase;
+    text-shadow: 4px 0px 0px var(--accent), 
+      5px 0px 0px var(--support);
+    text-align: center;
+  }
+  
+  #header h1 span { font-size: 97px; }
+  
+  #header h1 span b { 
+    color: var(--accent); 
+    text-shadow: none;
+    padding-left: 5px;
+  }
+  
+  #header h2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: uppercase;
+    color: var(--support);
+    font: 500 25px/120% var(--fontSubtitle);
+  }
+  
+  #header h2 span {
+    font-weight: 800;
+    color: var(--accent); 
+  }
+  
+  #header h3 {
+    text-transform: lowercase;
+    font: 500 27px/150% var(--fontSubtitle);
+    color: var(--light);
+    text-align: left !important;
+  }

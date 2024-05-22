@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="JS/cadastroLogin.js">
 </head>
 <body>
-  <a href="login.html"><img src="IMG/seta-para-a-esquerda.png" alt="" ></a>
+  <a href="login.html"><img src="assets/icons/seta-para-a-esquerda.png" alt="" ></a>
   <!--a div ring começa aqui-->
   <div class="ring">
     <i style="--clr:#ff0051;"></i>
@@ -19,34 +19,31 @@
       <h2>JUNTE-SE A NÓS!</h2>
       <span>FAÇA PARTE DESSA SOCIEDADE TECNOLÓGICA</span>
       <div class="inputBx">
-        <input type="text" placeholder="Nome completo" style="  padding-left: 20px;" id="input_nomeCompleto">
+        <input type="text" placeholder="Nome completo" id="input_nomeCompleto">
       </div>
 
-      <div class="mensagemErroNome"></div>
+      <div id="mensagemErroNome">mensagem</div>
 
       <div class="inputBx">
-        <input type="text" placeholder="Username" style="  padding-left: 20px; " 
-        id="input_userName">
+        <input type="text" placeholder="Username" id="input_userName">
       </div>
 
-      <div class="mensagemErroUser">Mensagem</div>
+      <div id="mensagemErroUser">mensagem</div>
 
       <div class="inputBx">
-        <input type="text" placeholder="E-mail ou celular" style="  padding-left: 20px;"
-        id="input_emailCelular">
+        <input type="text" placeholder="E-mail" id="input_email">
       </div>
 
-      <div class="mensagemErroEmailCelular">Mensagem</div>
+      <div id="mensagemErroEmail">mensagem</div>
 
       <div class="inputBx">
-        <input type="password" placeholder="Senha" style="  padding-left: 20px; "
-        id="input_senha">
+        <input type="password" placeholder="Senha" id="input_senha">
       </div>
 
-      <div class="mensagemErroSenha">Mensagem</div>
+      <div id="mensagemErroSenha">mensagem</div>
 
       <div class="inputBx">
-        <input type="submit" onclick="cadastrar()" value="CADASTRAR" style="font-size: small;" >
+        <input type="submit" onclick="cadastrar()" value="CADASTRAR" >
       </div>
 
       <div class="links">
@@ -59,139 +56,147 @@
 </html>
 <script>
 // Seleção dos elementos do DOM para facilitar o acesso e a manipulação desses elementos
-const login = document.getElementById('login');
 const nomeCompleto = document.getElementById('input_nomeCompleto');
 const userName = document.getElementById('input_userName');
-const emailCelular = document.getElementById('input_emailCelular');
+const email = document.getElementById('input_email');
 const senha = document.getElementById('input_senha');
 
 let validNome = false;
 let validUser = false;
-let validEmailCelular = false;
+let validEmail = false;
 let validSenha = false;
 
 nomeCompleto.addEventListener('keyup', () => {
-    if(nomeCompleto.value.length <= 2){
-      mensagemErroNome.setAttribute('style', 'color: red')
-      mensagemErroNome.innerHTML = 'Insira no mínimo 3 caracteres'
+    if(nomeCompleto.value.trim().length < 5){
+      mensagemErroNome.setAttribute('style', 'color: #706f6f')
+      mensagemErroNome.innerHTML = 'É preciso ter no mínimo 5 caracteres'
         validNome = false
     }else{
-      mensagemErroNome.setAttribute('style', 'display: none')
+      mensagemErroNome.setAttribute('style', 'color: transparent')
+      mensagemErroNome.innerHTML = 'correto'
         validNome = true
+    }
+})
+
+userName.addEventListener('keyup', () => {
+    if(userName.value.trim().length < 3 || userName.value == nomeCompleto.value || 
+    userName.value.trim() > 0){
+      mensagemErroUser.setAttribute('style', 'color: #706f6f')
+      mensagemErroUser.innerHTML = 'É preciso ser diferente do nome e ter no mínimo 3 caracteres'
+      validUser = false
+    }else{
+      mensagemErroUser.setAttribute('style', 'color: transparent')
+      mensagemErroUser.innerHTML = `correto`
+      validUser = true
+    }
+})
+
+
+
+email.addEventListener('keyup', () => {
+    if(email.value.indexOf('@') == -1 || !email.value.endsWith(`.com`) || email.value.length < 10){
+      // mensagemErroNome.setAttribute('style', 'position: absolute')
+      mensagemErroEmail.setAttribute('style', 'color: #706f6f')
+      mensagemErroEmail.innerHTML = ' É preciso ter no mínimo 10 caracteres, @ e .com'
+      validEmail = false
+    }else{
+      mensagemErroEmail.setAttribute('style', 'color: transparent')
+      mensagemErroEmail.innerHTML = `correto`
+      validEmail = true
+    }
+})
+
+
+senha.addEventListener('keyup', () => {
+    if(senha.value.length <= 2){
+      // mensagemErroNome.setAttribute('style', 'position: absolute')
+      mensagemErroSenha.setAttribute('style', 'color: #706f6f')
+      mensagemErroSenha.innerHTML = 'É preciso ter no mínimo 8 caracteres, 1 caracter especial e 1 numero'
+      validSenha = false
+    }else{
+      mensagemErroSenha.setAttribute('style', 'color: transparent')
+      mensagemErroSenha.innerHTML = 'correto'
+      validSenha = true
     }
 })
 
 /*
 function cadastrar() {
- // Armazenando os valores dos campos em variáveis
+    aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
     const nomeCompletoValue = nomeCompleto.value.trim();
     const userNameValue= userName.value.trim();
     const emailCelularValue = emailCelular.value.trim();
     const senhaValue = senha.value.trim();
-
-    // eu adicionei o trim() para remover os espaços em branco no inicio ou no fim de um texto
 
     if(nomeCompletoValue == '' ||
     userNameValue == '' || 
     emailCelularValue == '' || 
     senhaValue == '' )
     { 
-        alert(`Preencha todos os campos`) 
-        return false
+      alert('Mensagem de erro para todos os campos em branco');
+      // finalizarAguardar();
+      return false;
+    } 
 
-    }
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        empresaServer: empresaVar
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
 
+        if (resposta.ok) {
+          cardErro.style.display = "block";
 
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
 
-}
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
 
-// aguardar();
+    return false;
+  }
 
-// //Recupere o valor da nova input pelo nome do id
-// // Agora vá para o método fetch logo abaixo
-// var nomeVar = nome_input.value;
-// var emailVar = email_input.value;
-// var senhaVar = senha_input.value;
-// var confirmacaoSenhaVar = confirmacao_senha_input.value;
-// var empresaVar = listaEmpresas.value
-// if (
-//   nomeVar == "" ||
-//   emailVar == "" ||
-//   senhaVar == "" ||
-//   confirmacaoSenhaVar == "" ||
-//   empresaVar == ""
-// ) {
-//   cardErro.style.display = "block";
-//   mensagem_erro.innerHTML =
-//     "(Mensagem de erro para todos os campos em branco)";
-
-//   finalizarAguardar();
-//   return false;
-// } else {
-//   setInterval(sumirMensagem, 5000);
-// }
-
-// // Enviando o valor da nova input
-// fetch("/usuarios/cadastrar", {
-//   method: "POST",
-//   headers: {
-//     "Content-Type": "application/json",
-//   },
-//   body: JSON.stringify({
-//     // crie um atributo que recebe o valor recuperado aqui
-//     // Agora vá para o arquivo routes/usuario.js
-//     nomeServer: nomeVar,
-//     emailServer: emailVar,
-//     senhaServer: senhaVar,
-//     empresaServer: empresaVar
-//   }),
-// })
-//   .then(function (resposta) {
-//     console.log("resposta: ", resposta);
-
-//     if (resposta.ok) {
-//       cardErro.style.display = "block";
-
-//       mensagem_erro.innerHTML =
-//         "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-//       setTimeout(() => {
-//         window.location = "login.html";
-//       }, "2000");
-
-//       limparFormulario();
-//       finalizarAguardar();
-//     } else {
-//       throw "Houve um erro ao tentar realizar o cadastro!";
-//     }
-//   })
-//   .catch(function (resposta) {
-//     console.log(`#ERRO: ${resposta}`);
-//     finalizarAguardar();
-//   });
-
-// return false;
-// }
-
-// function listar() {
-// fetch("/empresas/listar", {
-//   method: "GET",
-// })
-//   .then(function (resposta) {
-//     resposta.json().then((empresas) => {
-//       empresas.forEach((empresa) => {
-//         listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-//       });
-//     });
-//   })
-//   .catch(function (resposta) {
-//     console.log(`#ERRO: ${resposta}`);
-//   });
-// }
-
-// function sumirMensagem() {
-// cardErro.style.display = "none";
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
 */
-// }
 </script>

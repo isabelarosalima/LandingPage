@@ -30,22 +30,16 @@ img{
  
 } 
 
-.mensagemErroNome, .mensagemErroUser, .mensagemErroEmailCelular,.mensagemErroSenha, .mensagemErroSenhaLogin, .mensagemErroEmailCelularLogin{
-  position: absolute;
-  background-color: transparent;
-  color: #706f6f;
-  top: 221px;
-  left: 12px;
-} .mensagemErroUser{
-  top: 306px;
-} .mensagemErroEmailCelular{
-  top: 391px;
-} .mensagemErroSenha{
-  top: 476px;
-} .mensagemErroSenhaLogin{
+#mensagemErroNome, #mensagemErroUser, #mensagemErroEmail, #mensagemErroSenha{
+ color: transparent;  
+ font-size: 13px;
+ text-align: center;
+ margin: 3px;
+   /* aplica uma separação entre eles */
+}
+
+ .mensagemErroSenhaLogin, .mensagemErroEmailCelularLogin{
   top: 415px;
-} .mensagemErroEmailCelularLogin{
-  top: 330px;
 }
 
 /* para mexer especificamente nessa div, preciso deixar flex e decidir a sua orientação */
@@ -122,8 +116,6 @@ img{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 20px;
-  /* aplica uma separação entre eles */
 }  
  
 .login h2 {
@@ -139,7 +131,9 @@ img{
   color: #ebeaea;
   font-weight: 200;
   font-style: oblique;
-  font-size: 13PX;
+  font-size: 13px;
+  margin-bottom: 13px;
+  text-align: justify;
 }
 
  .login .inputBx input {
@@ -154,7 +148,8 @@ img{
   color: #ffffffbf;
   box-shadow: none;
   outline: none;
-  margin-bottom: 15px;
+  padding-left: 20px;
+
 } 
 
 .login .inputBx input[type="submit"] {
@@ -164,6 +159,8 @@ img{
   font-weight: 800px;
   color: #fff;
   transition: 0.5s all ease;
+  margin-top: 5px ;
+  font-size: small;
 }
 .inputBx input[type="submit"]:hover {
   background-color: #e69602;
@@ -180,7 +177,7 @@ img{
   align-items: center;
   justify-content: center;
   padding: 0 20px;
-  bottom: 12px;
+  top: 12px;
 }
 
 .login .links p {

@@ -91,8 +91,6 @@ userName.addEventListener('keyup', () => {
     }
 })
 
-
-
 email.addEventListener('keyup', () => {
     if(email.value.indexOf('@') == -1 || !email.value.endsWith(`.com`) || email.value.length < 10){
       // mensagemErroNome.setAttribute('style', 'position: absolute')
@@ -108,32 +106,39 @@ email.addEventListener('keyup', () => {
 
 
 senha.addEventListener('keyup', () => {
-    if(senha.value.length <= 2){
-      // mensagemErroNome.setAttribute('style', 'position: absolute')
-      mensagemErroSenha.setAttribute('style', 'color: #706f6f')
-      mensagemErroSenha.innerHTML = 'É preciso ter no mínimo 8 caracteres, 1 caracter especial e 1 numero'
-      validSenha = false
-    }else{
-      mensagemErroSenha.setAttribute('style', 'color: transparent')
-      mensagemErroSenha.innerHTML = 'correto'
-      validSenha = true
+    const senhaValor = senha.value;
+    // estou utilizando REGEX (expressões regulares) são padrões usados para corresponder a combinações de caracteres em strings
+    const senhaValida = senhaValor.length >= 8 
+    && /[!@#$%^&*(),.?":{}|<>]/.test(senhaValor) && 
+    /[0-9]/.test(senhaValor);   
+    //O método test é usado para testar se a expressão regular encontra uma correspondência na string (variável senhaValida)              
+
+      // Verifica se a senha tem pelo menos 8 caracteres
+      // Verifica se a senha contém pelo menos um caractere especial
+      // Verifica se a senha contém pelo menos um número
+
+    if (!senhaValida) {
+        mensagemErroSenha.setAttribute('style', 'color: #706f6f');
+        mensagemErroSenha.innerHTML = 'É preciso ter no mínimo 8 caracteres, 1 caractere especial e 1 número';
+        validSenha = false;
+    } else {
+        mensagemErroSenha.setAttribute('style', 'color: transparent');
+        mensagemErroSenha.innerHTML = 'Correto';
+        validSenha = true;
     }
-})
+});
 
-/*
 function cadastrar() {
-    aguardar();
-
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     const nomeCompletoValue = nomeCompleto.value.trim();
     const userNameValue= userName.value.trim();
-    const emailCelularValue = emailCelular.value.trim();
+    const emailValue = email.value.trim();
     const senhaValue = senha.value.trim();
 
     if(nomeCompletoValue == '' ||
     userNameValue == '' || 
-    emailCelularValue == '' || 
+    emailValue == '' || 
     senhaValue == '' )
     { 
       alert('Mensagem de erro para todos os campos em branco');
@@ -150,53 +155,37 @@ function cadastrar() {
       body: JSON.stringify({
         // crie um atributo que recebe o valor recuperado aqui
         // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        empresaServer: empresaVar
+        nomeServer: nomeCompletoValue,
+        userServer: userNameValue,
+        emailServer: emailValue,
+        senhaServer: senhaValue,
+  
       }),
     })
+    //caso funcionar minha req 
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          // cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
+          alert(`Cadastro realizado com sucesso! Redirecionando para tela de Login...`)
+           
           setTimeout(() => {
             window.location = "login.html";
           }, "2000");
 
-          limparFormulario();
-          finalizarAguardar();
+          // limparFormulario();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
+        // finalizarAguardar();
       });
 
     return false;
   }
 
-  function listar() {
-    fetch("/empresas/listar", {
-      method: "GET",
-    })
-      .then(function (resposta) {
-        resposta.json().then((empresas) => {
-          empresas.forEach((empresa) => {
-            listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-          });
-        });
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-  }
-*/
 </script>

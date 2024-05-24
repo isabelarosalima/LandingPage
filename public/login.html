@@ -18,44 +18,82 @@
       <h2>BEM-VINDO DE VOLTA! </h2>
         <span>APROVEITE NOSSO SITE APROVEITE NOSSO SITE APROVEITE NOSSO SITE APROVEITE NOSSO SITE APROVEITE NOSSO SITE APROVEITE NOSSO SITE APROVEITE NOSSO SITE APROVEITE NOSSO SITE  </span>
       <div class="inputBx">
-        <input type="text" placeholder="E-mail ou celular" style="padding-left: 20px;">
+        <input type="text" placeholder="E-mail" id="input_emailLogin">
       </div>
 
-      <div class="mensagemErroEmailCelularLogin">Mensagem</div>
+      <div id="mensagemErroEmailLogin">Mensagem</div>
       
       <div class="inputBx">
-        <input type="password" placeholder="Senha" style="padding-left: 20px;">
+        <input type="password" placeholder="Senha" id="input_senhaLogin">
       </div>
   
-      <div class="mensagemErroSenhaLogin">Mensagem</div>
+      <div id="mensagemErroSenhaLogin">Mensagem</div>
 
       <div class="inputBx">
-       <input type="submit" value="LOGAR" style="font-size: small;">
+       <input type="submit" value="LOGAR" onclick="entrar()">
       </div>
   
       <div class="links">
-        <p>Não possui conta? <a href="cadastro.html" style="margin-left: 5px;">Cadastrar</a> </p> 
+        <p>Não possui conta? <a href="index.html">Cadastrar</a> </p> 
       </div>
     </div>
   </div>
 </body>
 </html>
 <script>
-  /*
-function entrar() {
-        aguardar();
+const email = document.getElementById('input_emailLogin');
+const senha = document.getElementById('input_senhaLogin');
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+let validEmail = false;
+let validSenha = false;
+
+
+email.addEventListener('keyup', () => {
+    if(email.value.indexOf('@') == -1 || !email.value.endsWith(`.com`) || email.value.trim().length < 10){
+      mensagemErroEmailLogin.setAttribute('style', 'color: #706f6f')
+      mensagemErroEmailLogin.innerHTML = ' É preciso ter no mínimo 10 caracteres, @ e .com'
+      validEmail = false
+    }else{
+      mensagemErroEmailLogin.setAttribute('style', 'color: transparent')
+      mensagemErroEmailLogin.innerHTML = `correto`
+      validEmail = true
+    }
+})
+
+
+senha.addEventListener('keyup', () => {
+    const senhaValor = senha.value;
+    // estou utilizando REGEX (expressões regulares) são padrões usados para corresponder a combinações de caracteres em strings
+    const senhaValida = senhaValor.length >= 8 && /[!@#$%^&*(),.?":{}|<>]/.test(senhaValor) && 
+    /[0-9]/.test(senhaValor);   
+    //O método test é usado para testar se a expressão regular encontra uma correspondência na string (variável senhaValida)              
+
+      // Verifica se a senha tem pelo menos 8 caracteres
+      // Verifica se a senha contém pelo menos um caractere especial
+      // Verifica se a senha contém pelo menos um número
+
+    if (!senhaValida) {
+        mensagemErroSenhaLogin.setAttribute('style', 'color: #706f6f');
+        mensagemErroSenhaLogin.innerHTML = 'É preciso ter no mínimo 8 caracteres, 1 caractere especial e 1 número';
+        validSenha = false;
+    } else {
+        mensagemErroSenhaLogin.setAttribute('style', 'color: transparent');
+        mensagemErroSenhaLogin.innerHTML = 'Correto';
+        validSenha = true;
+    }
+});
+
+function entrar() {
+        // aguardar();
+
+        var emailVar = input_emailLogin.value;
+        var senhaVar = input_senhaLogin.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
+           alert(`Mensagem de erro para todos os campos em branco`) ;
+            // finalizarAguardar();
             return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -84,8 +122,10 @@ function entrar() {
                     sessionStorage.ID_USUARIO = json.id;
                     sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
+                    alert(`Redirecionando para tela de usuario...`)
+
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
+                        window.location = "inicioQuiz.html";
                     }, 1000); // apenas para exibir o loading
 
                 });
@@ -96,19 +136,20 @@ function entrar() {
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    finalizarAguardar(texto);
+                    // finalizarAguardar(texto);
                 });
             }
 
         }).catch(function (erro) {
             console.log(erro);
+            alert(`Redirecionando para tela de usuario...`)
         })
 
         return false;
     }
 
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-    */
+    // function sumirMensagem() {
+    //     cardErro.style.display = "none"
+    // }
+    
 </script>

@@ -30,7 +30,7 @@ img{
  
 } 
 
-#mensagemErroNome, #mensagemErroUser, #mensagemErroEmail, #mensagemErroSenha{
+#mensagemErroNome, #mensagemErroUser, #mensagemErroEmail, #mensagemErroSenha, #mensagemErroSenhaLogin, #mensagemErroEmailLogin{
  color: transparent;  
  font-size: 13px;
  text-align: center;
@@ -38,9 +38,7 @@ img{
    /* aplica uma separação entre eles */
 }
 
- .mensagemErroSenhaLogin, .mensagemErroEmailCelularLogin{
-  top: 415px;
-}
+
 
 /* para mexer especificamente nessa div, preciso deixar flex e decidir a sua orientação */
 .ring {

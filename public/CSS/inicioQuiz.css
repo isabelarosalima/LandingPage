@@ -12,16 +12,17 @@
 :root {
     --darker: #101010;
     --dark: #171717;
-    --light: #cbcbcb;
+    --branco: #cbcbcb;
     
     --border: RGBA(255, 255, 255, 0.15);
     
-    --accent: magenta;
-    --support: cyan;
+    --magenta: magenta;
+    --ciano: cyan;
     --feature: #dabc87;
     
-    --fontTitle: MFF; 
-    --fontSubtitle: RH;
+    /*fontes baixadas */
+    --fontH1: MFF; 
+    --fonteH2: RH;
 }
 
 * {
@@ -50,7 +51,7 @@
   
 
 
- .titlePanel {
+ .painelImg {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -73,121 +74,136 @@
     background-position: bottom;
     border-bottom: solid 4px var(--border);
   }
-  
 
   
-  #header #titleHeader {
-    box-shadow: 
-          120px 20px #000000,
-          250px 40px #000000,
-          270px 40px #000000,
-          310px 40px #000000,
-          210px 60px #000000,
-          10px 70px #000000,
-          20px 70px #000000,
-          30px 70px #000000,
-          40px 70px #000000,
-          50px 70px #000000,
-          60px 70px #000000,
-          70px 70px #000000,
-          80px 70px #000000,
-          90px 70px #000000,
-          100px 70px #000000,
-          110px 70px #000000,
-          120px 70px #000000,
-          130px 70px #000000,
-          140px 70px #000000,
-          150px 70px #000000,
-          160px 70px #000000,
-          170px 70px #000000,
-          180px 70px #000000,
-          190px 70px #000000,
-          200px 70px #000000,
-          210px 70px #000000,
-          220px 70px #000000,
-          230px 80px #000000,
-          240px 90px #000000,
-          300px 90px #000000,
-          320px 90px #000000,
-          250px 100px #000000,
-          320px 100px #000000,
-          260px 110px #000000,
-          270px 110px #000000,
-          280px 110px #000000,
-          290px 110px #000000,
-          300px 110px #000000,
-          310px 110px #000000,
-          320px 110px #000000;
-  }
-  
-  #header .titleInfo {
+  #header .textosPainel {
+    background: var(--dark);
     position: absolute;
     z-index: 2;
-    left: -30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    width: 83%;
+    right: 45%;
+    width: 80%;
     max-width: 642px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+    padding-bottom: 85px;
     box-shadow: 
       16px 0 var(--dark), 
       -16px 0 var(--dark), 
+
       0 -16px var(--dark), 
       0 16px var(--dark),
+
       4px 0 0 8px var(--dark), 
       -4px 0 0 8px var(--dark), 
+
       0 -4px 0 8px var(--dark), 
       0 4px 0 8px var(--dark),
-      20px 0 var(--feature), 
-      -20px 0 var(--feature), 
-      0 -20px var(--feature), 
-      0 20px var(--feature),
-      0 0 0 12px var(--feature), 
-      0 8px 0 8px var(--feature), 
-      0 -8px 0 8px var(--feature),
-      8px 0 0 8px var(--feature), 
-      -8px 0 0 8px var(--feature);
+/* -------------------------------------------------------- */
+      20px 0 #887c95, 
+      -20px 0 #887c95, 
+
+      0 -20px #887c95, 
+      0 20px #887c95,
+
+      0 0 0 12px #887c95, 
+      0 8px 0 8px #887c95, 
+
+      0 -8px 0 8px #887c95,
+      8px 0 0 8px #887c95, 
+      -8px 0 0 8px #887c95;
   }
-  
-  #header #titleInfoText {
-    padding: 30px;
-    background: var(--dark);
-  }
-  
+
+  /* estilizando titulo e span do titulo (CYBER QUIZ)*/
   #header h1 { 
-    color: var(--light);
-    font: 500 80px/120% var(--fontTitle);
+    color: var(--branco);
+    /*grossura, size e espaçamento*/
+    font: 500 80px/120% var(--fontH1);
     text-transform: uppercase;
-    text-shadow: 4px 0px 0px var(--accent), 
-      5px 0px 0px var(--support);
+  /* para fazer esse efeito adicinei um text shadow */
+    text-shadow: 4px 0px 0px var(--magenta),
+    5px 0px 0px var(--ciano);
     text-align: center;
   }
   
   #header h1 span { font-size: 97px; }
   
   #header h1 span b { 
-    color: var(--accent); 
+    color: var(--magenta); 
     text-shadow: none;
     padding-left: 5px;
   }
   
-  #header h2 {
+ /* estilizando subtitulo */
+   h2 {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:center;
     text-transform: uppercase;
-    color: var(--support);
-    font: 500 25px/120% var(--fontSubtitle);
+    color: #089ce0;
+    font: 500 25px/120% var(--fonteH2);
+    font-size: 18px;
+    /* text-align: center; */
+    padding-left: 40px;
   }
   
-  #header h2 span {
+   h2 span {
     font-weight: 800;
-    color: var(--accent); 
+    color: var(--magenta); 
+    text-align: center;
   }
   
-  #header h3 {
-    text-transform: lowercase;
-    font: 500 27px/150% var(--fontSubtitle);
-    color: var(--light);
-    text-align: left !important;
+  .botaoComecar{
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: 296px;
+    background-color: transparent;
+    padding: 10px;
+    width: 150px;
+    cursor: pointer;
+
+    box-shadow: 
+    3px 0 var(--magenta),
+    -3px 0 var(--magenta),  
+
+    0 3px var(--magenta),
+    0 -3px var(--magenta),
+
+    2px 0 0 2px var(--dark),
+    -2px 0 0 2px var(--dark),
+
+    0 2px 0 2px var(--dark),
+    0 -2px 0 2px var(--dark);
+   
+    transition:all .2s ease;
   }
+
+  .botaoComecar:hover{
+    box-shadow: 
+    3px 0 #e005e0,
+    -3px 0 #e005e0,  
+
+    0 3px #e005e0,
+    0 -3px #e005e0,
+
+    2px 0 0 2px var(--dark),
+    -2px 0 0 2px var(--dark),
+
+    0 2px 0 2px var(--dark),
+    0 -2px 0 2px var(--dark);
+
+  }
+
+  .botaoComecar button{
+   background-color: transparent;
+    padding-left: 50px;
+    font-size: 17px;
+    font-family: RH;
+    font-weight: 600;
+    color: #b4b0b0;
+    cursor: pointer;
+  }
+

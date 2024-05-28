@@ -1,6 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
 
+@font-face {
+  font-family: MFF;
+  src:url('https://files.jcink.net/uploads2/rainshine/fonts/MonsterFriendFore.otf'); 
+} 
+
+@font-face {
+  font-family: RH;
+  src:url('https://files.jcink.net/uploads2/rainshine/fonts/rainyhearts.ttf'); 
+}
+
+:root {
+  --branco: #cbcbcb;
+  --magenta: magenta;
+  --ciano: cyan;
+  /*fontes baixadas */
+  --fontH1: MFF; 
+  --fonteH2: RH;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -117,12 +136,15 @@ img{
 }  
  
 .login h2 {
-  font-size: 2em;
-  color: #ebeaea;
-  font-family: "Freeman", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-  font-size: 32PX;
+  color: var(--branco);
+  /*grossura, size e espaçamento*/
+  font: 200 24px/170% var(--fontH1);
+  text-transform: uppercase;
+  /* para fazer esse efeito adicinei um text shadow */
+  text-shadow: 2px 0px 0px var(--magenta),
+  3px 0px 0px var(--ciano);
+  text-align: center;
+  margin-bottom: 17px;
 }
 
 .login span {  
@@ -151,7 +173,7 @@ img{
 } 
 
 .login .inputBx input[type="submit"] {
-  background: #d68b01;
+  background: #6810f5;
   border: none;
   cursor: pointer;
   font-weight: 800px;
@@ -161,7 +183,7 @@ img{
   font-size: small;
 }
 .inputBx input[type="submit"]:hover {
-  background-color: #e69602;
+  background-color: #5110f5;
 }
 
 .login .inputBx input::placeholder {
@@ -186,7 +208,7 @@ img{
 } 
 
 .login .links a  {
-  color: #fb2f73;
+  color: #ff00d4;
   text-decoration: none; 
   font-weight: 650;
   letter-spacing: 1px;
@@ -194,6 +216,6 @@ img{
 } 
 
 .login .links a:hover  {
-  color: #e7165b;
+  color: #ea00ff;
   text-decoration: none; 
 } 

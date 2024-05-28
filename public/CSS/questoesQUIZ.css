@@ -1,0 +1,112 @@
+ /* -------------------- perguntas do quiz ---------------------------------- */
+ 
+ .questoesQuiz{
+    color: #d0d0d0;
+    font-size: 15px;
+    font-family: MFF;
+    margin: 0;
+  }
+
+  .opcoeslista{
+    position: relative;
+    /* background-color:aqua ; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    top: 35px;
+    
+  }
+
+  .opcoes{
+    color: #b6b4b4;
+    background-color: #282828;
+    padding: 12px;
+    width: 500px;
+    height: 18px;
+
+    box-shadow: 
+    3px 0 rebeccapurple,
+    -3px 0 rebeccapurple,  
+
+    0 3px rebeccapurple,
+    0 -3px #663399,
+
+    2px 0 0 2px var(--dark),
+    -2px 0 0 2px var(--dark),
+
+    0 2px 0 2px var(--dark),
+    0 -2px 0 2px var(--dark);
+    
+    cursor: pointer;
+  }
+
+  .botaoProximPergunta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 70px;
+    align-self: flex-end;
+    height: 28px;
+    width: 80px;
+    right: 15px;
+  }
+
+
+  .botaoProximPergunta button{
+    background-color: transparent;
+    font-family: MFF;
+    font-size: 14px;
+    color: #d0d0d0;
+    cursor: pointer;
+    letter-spacing: 1px;
+   transition: all .3s ease;
+  }
+
+  button:hover{
+    text-shadow: 3px 0px 0px #930380,
+    4px 0px 0px #078e93;
+  }
+  
+  .totalQuestoes{
+    gap: 6px;
+    display: flex;
+    position: relative;
+    top: 44px;
+    color: #b6b4b4;
+    width: 200px;
+    margin: 0;
+    align-self: flex-start;
+    font-family: RH;
+    font-size: 18px;
+    left: 3.5%;
+    text-transform: uppercase;
+  }
+
+  .timer{
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    position: absolute;
+    align-self: flex-end;
+    /* background-color: #078e93; */
+    left: 850px  ;
+    bottom: 450px;
+    width: 40px;
+    gap: 8px;
+    flex-direction: column;
+    color: #d0d0d0;
+  }
+
+  .timerTexto{
+    text-transform: uppercase;
+    font-family: RH;
+    font-weight: 500;
+  }
+
+  .timerTempo{
+  font-size: 55px;
+    font-family: MFF;
+  }

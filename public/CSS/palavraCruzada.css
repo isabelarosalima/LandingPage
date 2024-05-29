@@ -71,6 +71,7 @@ main {
 #intro h1 {
     font-size: 50px;
     font-family: MFF;
+    text-shadow: 2px 0 0 #0983d5;
 }
 
 
@@ -79,6 +80,7 @@ main {
     font-size: 15px;
     font-family: RH;
     text-transform: uppercase;
+    color: #d6d6d6;
 }
 
 #sum {
@@ -134,19 +136,29 @@ button {
 
 
 .rows span{
+    position: relative;
     display: flex;
-    flex-direction: column ;
-    /* justify-content: center; */
-    width: 100%;
-    font-size: 17px;
+    flex-direction: row;
+    width: 95%;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: left;
+    left: 22px;
+    top: 10px;
+    color: #e5e4e4;
+    text-shadow: 1px 0 0 #e5e4e4;
 }
 
+.rows p{
+   margin-right: 12px;
+   font-size: 11px;
+   font-family: MFF ;
+}
 
 .item-row {
-    position: relative;
-    text-align: center  ;
+    /* position: relative; */
     width: 25%;
-    padding: 0.6rem;
+    padding: 0.7rem;
     
 }
 

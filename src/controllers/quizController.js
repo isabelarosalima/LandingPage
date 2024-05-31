@@ -19,6 +19,33 @@ function buscarResultadoJogador(req, res) {
     });
 }
 
+function inserirResultadoQuiz(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var acertos = req.body.acertosServer;
+    var erros = req.body.errosServer;
+    var pontos = req.body.pontosServer;
+    var idUsuario = req.body.idJogador;
+
+    quizModel.finalizar(acertos, erros, pontos, idUsuario)
+    //requisição funcionou
+    .then(
+        function (resultado) {
+            res.json(resultado);
+        }
+    //requisição não funcionou
+    ).catch(
+        function (erro) {
+            console.log(erro);
+            console.log(
+                "\nHouve um erro ao realizar a inserção!",
+                erro.sqlMessage
+            );
+            res.status(500).json(erro.sqlMessage);
+        }
+    );
+}
+
 module.exports = {
-    buscarResultadoJogador
+    buscarResultadoJogador,
+    inserirResultadoQuiz
 }

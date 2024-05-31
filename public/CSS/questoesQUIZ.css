@@ -62,7 +62,7 @@
     color: #d0d0d0;
     cursor: pointer;
     letter-spacing: 1px;
-   transition: all .3s ease;
+    transition: all .3s ease;
   }
 
   button:hover{

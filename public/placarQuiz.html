@@ -12,7 +12,6 @@
 
 <!-- sessao inicio do quiz -->
   <header id="header">
-
     <!-- sessão gif -->
     <section class="headerImg">
       <img src="https://s9.gifyu.com/images/SZ8G7.gif">
@@ -21,11 +20,28 @@
     <!-- sessão imagem e painel -->
     <section class="painelImg">
       <div class="textosPainel">
-        
+
         <div class="canvas">
             <canvas id="myChart"></canvas>
         </div>
+
+        <div class="pontuacao">
+          <span>fim de jogo!</span>
+
+          <div class="textoPontuacao">
+             <p class="textoFim">parebéns por finalizar o quiz! 
+            Confira sua pontuação, seus erros, acertos e o tempo em <br> finalizou.</p>
+          </div>
+         
+          <div class="pontuacaoEtempo">
+            <p class="pontos">pontuação:</p>
+            <p class="pontos">Tempo:</p>
+          </div>
        
+        </div>
+        
+          <a href="quizPerguntas.html"><button class="botaoReiniciar">Reiniciar</button></a>
+          <a href="paginaUsuario.html" class="botaoVoltar">VOLTAR</a>
      </div>
     </section>
 
@@ -40,10 +56,11 @@
    let graficoQuiz = new Chart(ctx, {
       type: 'doughnut',
       data: {
-        labels: ['Red', 'Blue'],
+        labels: ['Acertos','Erros'],
         datasets: [{
-          label: '# of Votes',
-          data: [27, 19],
+          label: 'pontuação',
+          backgroundColor: ['#a82ba8', '#368a8a'],
+          data: [],
           borderWidth: 1
         }]
     },
@@ -57,7 +74,6 @@
     });
 
     function exibirResultadoJogador() {
-  sessionStorage.ID_USUARIO = 1; // Certifique-se de que isso esteja definido conforme necessário
   fetch(`/quiz/buscarResultadoJogador/${sessionStorage.ID_USUARIO}`, {
     method: "GET",
     headers: {
@@ -66,16 +82,17 @@
   })
   .then(function (resposta) {
     if (resposta.ok) {
-      return resposta.json(); // Converte a resposta para JSON
+      resposta.json().then(function (data){
+        // div.innerHTML = data[0].ponto
+        /*adicionar innerHTML data[0].pontos */
+        console.log(data)
+        graficoQuiz.data.datasets[0].data=[data[0].acertos, data[0].erros];
+        graficoQuiz.update(); // Atualiza o gráfico com os novos dados
+      })
+
     } else {
       throw "Houve um erro ao tentar trazer o resultado";
     }
-  })
-  .then(function (data) {
-    console.log('recebi as mensagens');
-    console.log("Dados do resultado do jogador:", data);
-    // Adiciona os dados ao gráfico
-    graficoQuiz.data.datasets[0].data.push(data.acertos, data.erros);
   })
   .catch(function (erro) {
     console.log(`#ERRO: ${erro}`);

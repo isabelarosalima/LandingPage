@@ -9,5 +9,9 @@ router.get("/buscarResultadoJogador/:idJogador", function (req, res) {
     quizController.buscarResultadoJogador(req, res);
 });
 
+router.post("/inserirResultadoQuiz", function (req, res) {
+    quizController.inserirResultadoQuiz(req, res);
+});
+
 module.exports = router;
 

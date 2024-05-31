@@ -1,6 +1,7 @@
 let totalQuestoes = document.querySelector('#totalQuestoes')
 let pontos = 0 // pontos para o placar
 let placar = 0 // placar
+let acertos = 0
 
 // PERGUNTA
 let numQuestao = document.querySelector('#numQuestao')
@@ -195,12 +196,11 @@ function verificarSeAcertou(nQuestao, resposta) {
     //console.log("RespC " + certa)
 
     if(respostaEscolhida == certa) {
-        //console.log("Acertou")
-        //respostaEsta.textContent = "Correta 😊"
+         //console.log("acertou!")
         pontos += 10 // pontos = pontos + 10
+        acertos ++
     } else {
         //console.log("Errou!")
-        //respostaEsta.textContent = "Errada 😢"
     }
  
     // atualizar placar
@@ -215,7 +215,6 @@ function verificarSeAcertou(nQuestao, resposta) {
 
         if(proxima > totalDeQuestoes) {
             console.log('Fim do Jogo!')
-            fimDoJogo()
         } else {
             proximaQuestao(proxima)
         }
@@ -223,6 +222,48 @@ function verificarSeAcertou(nQuestao, resposta) {
     desbloquearAlternativas()
 }
 
+function finalizarQuiz(){
+    const acertosValue = acertos;
+    const errosValue= 10 - acertos;
+    const pontosValue= pontos;
+
+    console.log(acertosValue)
+    fetch("/quiz/inserirResultadoQuiz", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          idJogador: sessionStorage.ID_USUARIO,
+          acertosServer: acertosValue,
+          errosServer: errosValue,
+          pontosServer: pontosValue,
+
+        }),
+      })
+      //caso funcionar minha req 
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+  
+          if (resposta.ok) {
+            console.log('dados inseridos')
+          } else {
+            throw "Houve um erro ao tentar realizar a captura de dados";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          // finalizarAguardar();
+        });
+  
+        setTimeout(function () {
+            window.location = "placarQuiz.html";
+        }, 100);
+}
+
+/*
 function fimDoJogo() {
     instrucoes.textContent = "Fim de Jogo!"
     // questoesQuiz.textContent = "Pontos " + placar
@@ -253,4 +294,4 @@ function fimDoJogo() {
         location.reload();
     }, 2000)
 }
- 
+ */

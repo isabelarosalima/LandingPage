@@ -1,13 +1,13 @@
  /* -------------------- perguntas do quiz ---------------------------------- */
  
- .questoesQuiz{
+ #questoesQuiz{
     color: #d0d0d0;
     font-size: 15px;
     font-family: MFF;
     margin: 0;
   }
 
-  .opcoeslista{
+  #opcoeslista{
     position: relative;
     /* background-color:aqua ; */
     display: flex;
@@ -70,7 +70,7 @@
     4px 0px 0px #078e93;
   }
   
-  .totalQuestoes{
+  #totalQuestoes{
     gap: 6px;
     display: flex;
     position: relative;
@@ -109,4 +109,10 @@
   .timerTempo{
   font-size: 55px;
     font-family: MFF;
+  }
+
+  /* retirou a marcação de listagem */
+  li{
+    list-style-type: none;
+    padding: 0;
   }

@@ -10,22 +10,23 @@
 <body>
     <div class="container">
           <span class="texto"></span>
+         <div class="lincagem">
+          <a href="quizPerguntas.html">continuar</a>
+         </div>
     </div>
-   
 </body>
 </html>
 <script>
     const container = document.getElementsByClassName("container")[0];
-    let newLine = document.createElement("p");
-    container.appendChild(newLine);
+    let novaLinha = document.createElement("p");
+    container.appendChild(novaLinha);
 
   let texto = ` Este quiz apresenta 20 questões desafiadoras sobre o universo cyberpunk, abrangendo suas tecnologias e obras mais emblemáticas. As perguntas variam em dificuldade para testar e expandir seus conhecimentos sobre este fascinante tema. 
-  Você terá um total de 10 minutos para completar o quiz. Este tempo limitado foi definido para adicionar um elemento de desafio, estimulando sua capacidade de processar informações rapidamente e tomar decisões sob pressão. 
+  Você terá um total de 15 segundos para completar o quiz. Este tempo limitado foi definido para adicionar um elemento de desafio, estimulando sua capacidade de processar informações rapidamente e tomar decisões sob pressão. 
   Ao final do quiz, você verá um resumo dos seus acertos e erros. Contudo, as questões específicas que você errou não serão indicadas. Esta abordagem foi escolhida para incentivá-lo a refletir sobre o conteúdo e revisar seus conhecimentos, promovendo um aprendizado mais profundo e ativo.
   Não esqueça de verificar o ranking geral dos jogadores e suas pontuações. Compare seu desempenho com outros entusiastas do cyberpunk e veja onde você se posiciona. Boa sorte!
  
   Prepare-se para mergulhar no futuro distópico e mostrar o quanto você sabe sobre este fascinante gênero!
-  
 `
 
 mostrarTexto(); 
@@ -34,44 +35,35 @@ function mostrarTexto(){
   let contador = 0;
   let textoPausado = false;
 
-  let interval = setInterval(function(){
+  let intervalo = setInterval(
+    function(){
+      
     if (!textoPausado) {
       printChar(texto[contador]);
       contador++;   
     }
+    /*  setInterval para executar uma função repetidamente com um intervalo de tempo fixo.  */
 
     if (contador === texto.length) {
-      clearInterval(interval);
-      skipBtn.textContent = "End.";
-      skipBtn.classList.remove("texto");
-      skipBtn.addEventListener("click", () => {
-        newLine.textContent = ""
-        mostrarTexto(user, place, texto)
-      })
+      clearInterval(intervalo);
     }
 
+    /* Este mecanismo pode ser utilizado para controlar a exibição de texto de forma dinâmica, pausando a execução em certas condições */
     if (container.clientHeight > (body.clientHeight/2)) {
       if(texto[contador] === " "){
-        // toggle alway toggling and wont stop, we need to toggle skipBTN outside interval
+        
         textoPausado = true;
         skipBtn.classList.remove("texto");
-        
-        skipBtn.addEventListener("click", function(){
-          // newLine.textContent = `${username}`;
-          skipBtn.classList.add("texto");
-          textoPausado = false;
-      })
       }
     }
   }, 50)
 }
 
-
 function pause(){
-  clearInterval(interval);
+  clearInterval(intervalo);
 }
 
 function printChar(char){
-  newLine.textContent += char;
+  novaLinha.textContent += char;
 }
 </script>

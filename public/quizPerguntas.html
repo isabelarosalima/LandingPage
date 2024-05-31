@@ -20,47 +20,50 @@
     <section class="painelImg">
     
       <div class="textosPainel">
-        <div class="questoesQuiz">
-            <span class="pergunta">escolhe uma alternativa ae</span>
-        </div>
-        <div class="opcoeslista">
-            <div class="opcoes">
-                <span>verdade e essa</span>
-            </div>
-            <div class="opcoes">
-                <span>verdade e essa</span>
-            </div>
-            <div class="opcoes">
-                <span>verdade e essa</span>
-            </div>
-            <div class="opcoes">
-                <span>verdade e essa</span>
-            </div>
-            <div class="opcoes">
-                <span>verdade e essa</span>
-            </div>
-        </div>
+          <div id="questoesQuiz">
+            <!-- Aqui inseri a pergunta via JavaScript --> 
+            <span id='numQuestao'></span>
+            <span id="pergunta">oi</span>
+           </div>
 
+      
+            <ol id="opcoeslista">
+              <li id='a' value='1A' class='opcoes' onClick='verificarSeAcertou(this, this)'></li>
+              <li id='b' value='1B' class='opcoes' onClick='verificarSeAcertou(this, this)'></li>
+              <li id='c' value='1C' class='opcoes' onClick='verificarSeAcertou(this, this)'></li>
+              <li id='d' value='1D' class='opcoes' onClick='verificarSeAcertou(this, this)'></li>
+            </ol>
+ 
+        
           <div class="botaoProximPergunta">
-            <a href="explicacaoQuiz.html">
-             <button onclick="proximaPergunta()">
-              next
+             <button class="next_btn">
+              Finalizar
               </button>
-            </a>
           </div>
 
-          <div class="totalQuestoes">
-           questão <p>5</p> de <p>9</p>
-          </div>
+          <article id='totalQuestoes'>
+            Questão <span id='numero'></span> de <span id='total'></span>
+          </article>
+  
 
           <div class="timer">
             <div class="timerTempo">15</div>
             <div class="timerTexto">SEGUNDOS</div>
+            <div class="time_line"></div>
           </div>
+
+          <!-- <div id="instrucoes">ffuwhyjba</div> -->
     </div>
     </section>
+
+    <section>
+
+    </section>
+
+    
   </header>
 
   <script src="JS/quiz.js"></script>
+  <script src="JS/questoesQuiz.js"></script>
 </body>
 </html>

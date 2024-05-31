@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ</title>
+  <link rel="stylesheet" href="CSS/inicioQuiz.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="exibirResultadoJogador()"> 
+    <!-- onload = assim que carregar minha página, será executada a função exibirResultadoJogador -->
+
+<!-- sessao inicio do quiz -->
+  <header id="header">
+
+    <!-- sessão gif -->
+    <section class="headerImg">
+      <img src="https://s9.gifyu.com/images/SZ8G7.gif">
+    </section>
+
+    <!-- sessão imagem e painel -->
+    <section class="painelImg">
+      <div class="textosPainel">
+        
+        <div class="canvas">
+            <canvas id="myChart"></canvas>
+        </div>
+       
+     </div>
+    </section>
+
+  </header>
+
+</body>
+</html>
+
+<script>
+    const ctx = document.getElementById('myChart');
+  
+   let graficoQuiz = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Red', 'Blue'],
+        datasets: [{
+          label: '# of Votes',
+          data: [27, 19],
+          borderWidth: 1
+        }]
+    },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    function exibirResultadoJogador() {
+  sessionStorage.ID_USUARIO = 1; // Certifique-se de que isso esteja definido conforme necessário
+  fetch(`/quiz/buscarResultadoJogador/${sessionStorage.ID_USUARIO}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  })
+  .then(function (resposta) {
+    if (resposta.ok) {
+      return resposta.json(); // Converte a resposta para JSON
+    } else {
+      throw "Houve um erro ao tentar trazer o resultado";
+    }
+  })
+  .then(function (data) {
+    console.log('recebi as mensagens');
+    console.log("Dados do resultado do jogador:", data);
+    // Adiciona os dados ao gráfico
+    graficoQuiz.data.datasets[0].data.push(data.acertos, data.erros);
+  })
+  .catch(function (erro) {
+    console.log(`#ERRO: ${erro}`);
+  });
+}
+
+</script>
+   

@@ -23,7 +23,7 @@
                     <div id="mode_container">
                         <h2 class="now" id="page_list">Guia para <span class="blue">respostas</span></h2>
                         <button id="btn_mode"><img class="select-disable" id="switch_title"
-                                src="./assets/icons/ArrowsClockwise.png" alt="Troca de modo"></button> 
+                                src="assets/icons/refazer.png" alt="Troca de modo"></button> 
                         <h2 id="page_crossword">Palavras <span class="blue">cruzadas</span></h2>
                     </div>
                     <div id="list_container">
@@ -37,7 +37,7 @@
                             <span class="item-row"> <p>3</p> Especialistas em invadir sistemas de computador, muitas vezes retratados como anti-heróis ou protagonistas que lutam contra corporações opressoras.
                             </span>
 
-                            <span class="item-row"> <p>4</p>Enormes empresas multinacionais com poderes comparáveis aos de governos, dominando a sociedade e a economia.
+                            <span class="item-row"> <p>4</p>concentrado nas mãos de megacorporações poderosas que controlam vastos recursos e influenciam governos
                             </span>
 
                             <span class="item-row"> <p>5</p> Um cenário futurista pessimista onde prevalece a opressão, a desigualdade e a degradação social.
@@ -51,14 +51,7 @@
 
                             <span class="item-row"> <p>8</p>Estilo visual e narrativo que influencia fortemente a estética cyberpunk, caracterizado por tons sombrios e tramas de mistério e crime.
                             </span>
-                            <!-- Neon
-                            Implantes
-                            Hackers
-                            Megacorporações
-                            Distopia
-                            Ciberespaço 
-                            Androides
-                            Noir -->
+
                         </div>
                         </div>
                     </div>
@@ -66,279 +59,93 @@
                         <table class="select-disable">
                             <tr>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>1</td>
-                                <td><input id="F" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td></td>
-                                <td><input id="L" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td>3</td>
                                 <td></td>
                                 <td></td>
                                 <td>4</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
                             </tr>
                             <tr>
-                                <td><input id="Q" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="U" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="none" readonly="readonly"> </td>
-                                <td><input id="C" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="O" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>5</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="P" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td>7</td>
-                                <td></td>
-                                <td></td>
-                                <td>8</td>
-                                <td></td>
-                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td><input id="H" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td>9</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td>6</td>
-                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td><input id="N" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="C" onkeyup="result(this);" type="text" maxlength="1"></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><input id="H" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="C" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="K" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="G" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td><input id="I" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="T" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="O" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
                                 <td></td>
                                 <td><input id="O" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td></td>
                                 <td></td>
-                                <td><input id="7" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td></td>
                                 <td></td>
-                                <td><input id="O" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="U" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td>10 </td>
-                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="M" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="M" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>11 </td>
-                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="M" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="L" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>12</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="none" readonly="readonly"> </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="C" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>14</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="none" readonly="readonly"> </td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="O" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td>13</td>
-                                <td><input id="C" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td><input id="P" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="U" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="B" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td><input id="N" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="I" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
+                       
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td><input id="T" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="B" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
                             </tr>
                             <tr>
                                 <td></td>
@@ -348,112 +155,105 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td>16</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td><input id="I" onkeyup="result(this);" type="text" maxlength="1"></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="O" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                                <td>8</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><input id="I" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="M" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="P" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td><input id="L" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="N" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="T" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
+                            </tr>
+                            <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td><input id="U" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
+                                <td><input id="O" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="N" onkeyup="result(this);" type="text" maxlength="1"></td>
                             </tr>
                             <tr>
                                 <td></td>
-                                <td>15</td>
-                                <td><input id="M" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="M" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td></td>
+                                <td></td>
+                                <td><input id="Ç" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td>5</td>
+                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="I" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="T" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td><input id="O" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="P" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td><input id="I" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="none" readonly="readonly"> </td>
-                                <td><input id="D" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="E" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="none" readonly="readonly"> </td>
-                                <td><input id="M" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td><input id="A" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td><input id="O" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="5" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="B" onkeyup="result(this);" type="text" maxlength="1"></td>
+                                <td><input id="R" onkeyup="result(this);" type="text" maxlength="1"></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="U" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td><input id="S" onkeyup="result(this);" type="text" maxlength="1"></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>7</td>
+
                             </tr>
                         </table>
                     </div>

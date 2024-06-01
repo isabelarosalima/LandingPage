@@ -1,59 +1,70 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
-
-CREATE DATABASE aquatech;
-
-USE aquatech;
-
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
-);
+create database cyberpunk;
+use cyberpunk;
+-- drop database cyberpunk;
 
 CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	id INT AUTO_INCREMENT,
+    nome varchar(45),
+    userName varchar(45),
+    email varchar(45),
+    senha varchar(45),
+     PRIMARY KEY (id)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+CREATE TABLE quiz (
+	idQuiz INT AUTO_INCREMENT,
+    pontos INT,
+    erros INT,
+    acertos INT,
+    tempo INT,
+    primary key (idQuiz, fkUsuario),
+    fkUsuario INT,
+    constraint fkquiz foreign key quiz(fkUsuario) references usuario(id)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+CREATE TABLE feedback (
+	idFeedback INT AUTO_INCREMENT,
+    username VARCHAR(45),
+    email VARCHAR(45),
+    texto text,
+    fkUsuarioFeed INT,
+    PRIMARY KEY (idFeedback, fkUsuarioFeed),
+    constraint fkFeedback foreign key feedback(fkUsuarioFeed) references usuario(id)
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+select * from usuario;
+select * from quiz;
+select * from feedback;
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+-- Selecionar os pontos, erros, acertos e tempo do último quiz de um usuário específico:
+select pontos, erros, acertos, tempo from quiz 
+WHERE fkUsuario = 1 
+ORDER BY idQuiz 
+DESC limit 1;
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+SELECT * FROM feedback 
+WHERE fkUsuarioFeed = 1;
+
+SELECT * FROM quiz 
+WHERE fkUsuario = 1;
+
+-- Selecionar o tempo total gasto por cada usuário em seus quizzes:
+SELECT fkUsuario, SUM(tempo) as tempo_total 
+FROM quiz 
+GROUP BY fkUsuario;
+
+--Selecionar o total de erros cometidos por cada usuário em seus quizzes:
+SELECT fkUsuario, SUM(erros) as total_erros 
+FROM quiz 
+GROUP BY fkUsuario;
+
+-- Selecionar o nome e o email de todos os usuários que têm feedbacks registrados:
+SELECT u.nome, u.email 
+FROM usuario as u 
+JOIN feedback as f 
+ON u.id = f.fkUsuarioFeed;
+
+-- Contar quantos quizzes cada usuário fez:
+SELECT fkUsuario, COUNT(*) as total_quizzes 
+FROM quiz 
+GROUP BY fkUsuario;

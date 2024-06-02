@@ -34,8 +34,8 @@
           </div>
          
           <div class="pontuacaoEtempo">
-            <p class="pontos">pontuação:</p>
-            <p class="pontos">Tempo:</p>
+            <p class="pontos">pontuação:<span id="pontuacaoQuiz"></span></p>
+            <p class="tempo">Tempo:<span id="tempoQuiz"></span></p>
           </div>
        
         </div>
@@ -83,7 +83,7 @@
   .then(function (resposta) {
     if (resposta.ok) {
       resposta.json().then(function (data){
-        // div.innerHTML = data[0].ponto
+        pontuacaoQuiz.innerHTML = data[0].pontos
         /*adicionar innerHTML data[0].pontos */
         console.log(data)
         graficoQuiz.data.datasets[0].data=[data[0].acertos, data[0].erros];

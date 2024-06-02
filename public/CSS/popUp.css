@@ -1,0 +1,28 @@
+/* O popup (caixa) - está escondido por padrão */
+.popup {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica fixo na tela */
+    z-index: 1; /* Fica na frente de outros elementos */
+    left: 2%;
+    top: 14%;
+    width: 300px;
+    height: 160px;
+    padding: 20px;
+    background-color: #9f9f9f;
+    box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid black;
+}
+
+/* O botão de fechar (x) */
+.close-popup {
+    color: #232222;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+    color: rgb(90, 22, 109);
+    text-decoration: none;
+    cursor: pointer;
+}

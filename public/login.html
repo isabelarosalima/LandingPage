@@ -1,158 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="CSS/cadastro.css">
+  <link rel="stylesheet" href="CSS/popUp.css">
 </head>
+
 <body>
-  <a href="cadastro.html"><img src="assets/icons/seta-para-a-esquerda.png" alt="" ></a>
- <!--a div ring começa aqui-->
+  <a id="popupLink"><img src="assets/icons/seta-para-a-esquerda.png" alt=""></a>
+
+  <!-- Popup -->
+  <div id="meuPopup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup">x</span>
+      <p>Para ter acesso ao site, é preciso logar, caso contrário, não terá acesso ao mesmo! Se não possui uma conta, se cadastre! </p>
+    </div>
+  </div>
+
+
+  <!--a div ring começa aqui-->
   <div class="ring">
     <i style="--clr:#ff00d4;"></i>
     <i style="--clr:#0594a7;"></i>
     <i style="--clr:#6f22eb;"></i>
-   <!--a div do login começa aqui -->
+    <!--a div do login começa aqui -->
     <div class="login">
       <h2>BEM-VINDO AO CYBERMUNDO! </h2>
-        <span style="text-align: center;">ENTRE E DOMINE AS CORRENTES DA TECNOLOGIA INOVADORA E
-          REDESCUBRA <br> A MAGIA DA NOSSA METRÓPOLE DIGITAL
+      <span style="text-align: center;">ENTRE E DOMINE AS CORRENTES DA TECNOLOGIA INOVADORA E
+        REDESCUBRA <br> A MAGIA DA NOSSA METRÓPOLE DIGITAL
       </span>
       <div class="inputBx">
         <input type="text" placeholder="E-mail" id="input_emailLogin">
       </div>
 
       <div id="mensagemErroEmailLogin">Mensagem</div>
-      
+
       <div class="inputBx">
         <input type="password" placeholder="Senha" id="input_senhaLogin">
       </div>
-  
+
       <div id="mensagemErroSenhaLogin">Mensagem</div>
 
       <div class="inputBx">
-       <input type="submit" value="LOGAR" onclick="entrar()">
+        <input type="submit" value="LOGAR" onclick="entrar()">
       </div>
-  
+
       <div class="links">
-        <p>Não possui conta? <a href="index.html">Cadastrar</a> </p> 
+        <p>Não possui conta? <a href="index.html">Cadastrar</a> </p>
       </div>
     </div>
   </div>
 </body>
+
 </html>
 <script>
-const email = document.getElementById('input_emailLogin');
-const senha = document.getElementById('input_senhaLogin');
+  const email = document.getElementById('input_emailLogin');
+  const senha = document.getElementById('input_senhaLogin');
 
-let validEmail = false;
-let validSenha = false;
+  let validEmail = false;
+  let validSenha = false;
 
 
-email.addEventListener('keyup', () => {
-    if(email.value.indexOf('@') == -1 || !email.value.endsWith(`.com`) || email.value.trim().length < 10){
+  email.addEventListener('keyup', () => {
+    if (email.value.indexOf('@') == -1 || !email.value.endsWith(`.com`) || email.value.trim().length < 10) {
       mensagemErroEmailLogin.setAttribute('style', 'color: #706f6f')
       mensagemErroEmailLogin.innerHTML = ' É preciso ter no mínimo 10 caracteres, @ e .com'
       validEmail = false
-    }else{
+    } else {
       mensagemErroEmailLogin.setAttribute('style', 'color: transparent')
       mensagemErroEmailLogin.innerHTML = `correto`
       validEmail = true
     }
-})
+  })
 
 
-senha.addEventListener('keyup', () => {
+  senha.addEventListener('keyup', () => {
     const senhaValor = senha.value;
     // estou utilizando REGEX (expressões regulares) são padrões usados para corresponder a combinações de caracteres em strings
-    const senhaValida = senhaValor.length >= 8 && /[!@#$%^&*(),.?":{}|<>]/.test(senhaValor) && 
-    /[0-9]/.test(senhaValor);   
+    const senhaValida = senhaValor.length >= 8 && /[!@#$%^&*(),.?":{}|<>]/.test(senhaValor) &&
+      /[0-9]/.test(senhaValor);
     //O método test é usado para testar se a expressão regular encontra uma correspondência na string (variável senhaValida)              
 
-      // Verifica se a senha tem pelo menos 8 caracteres
-      // Verifica se a senha contém pelo menos um caractere especial
-      // Verifica se a senha contém pelo menos um número
+    // Verifica se a senha tem pelo menos 8 caracteres
+    // Verifica se a senha contém pelo menos um caractere especial
+    // Verifica se a senha contém pelo menos um número
 
     if (!senhaValida) {
-        mensagemErroSenhaLogin.setAttribute('style', 'color: #706f6f');
-        mensagemErroSenhaLogin.innerHTML = 'É preciso ter no mínimo 8 caracteres, 1 caractere especial e 1 número';
-        validSenha = false;
+      mensagemErroSenhaLogin.setAttribute('style', 'color: #706f6f');
+      mensagemErroSenhaLogin.innerHTML = 'É preciso ter no mínimo 8 caracteres, 1 caractere especial e 1 número';
+      validSenha = false;
     } else {
-        mensagemErroSenhaLogin.setAttribute('style', 'color: transparent');
-        mensagemErroSenhaLogin.innerHTML = 'Correto';
-        validSenha = true;
+      mensagemErroSenhaLogin.setAttribute('style', 'color: transparent');
+      mensagemErroSenhaLogin.innerHTML = 'Correto';
+      validSenha = true;
     }
-});
+  });
 
-function entrar() {
-        // aguardar();
+  function entrar() {
+    // aguardar();
 
-        var emailVar = input_emailLogin.value;
-        var senhaVar = input_senhaLogin.value;
+    var emailVar = input_emailLogin.value;
+    var senhaVar = input_senhaLogin.value;
 
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-           alert(`Mensagem de erro para todos os campos em branco`) ;
-            // finalizarAguardar();
-            return false;
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    /* armazenamento de sessão enquanto estiver aberta */
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
-
-                    alert(`Redirecionando para tela de usuario...`)
-
-                    setTimeout(function () {
-                        window.location = "inicioQuiz.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    // finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-            alert(`Redirecionando para tela de usuario...`)
-        })
-
-        return false;
+    if (emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block"
+      alert(`Mensagem de erro para todos os campos em branco`);
+      // finalizarAguardar();
+      return false;
     }
 
-    // function sumirMensagem() {
-    //     cardErro.style.display = "none"
-    // }
-    
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      })
+    }).then(function (resposta) {
+      console.log("ESTOU NO THEN DO entrar()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          /* armazenamento de sessão enquanto estiver aberta */
+          sessionStorage.EMAIL_USUARIO = json.email;
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.ID_USUARIO = json.id;
+          sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+          alert(`Redirecionando para tela de usuario...`)
+
+          setTimeout(function () {
+            window.location = "paginaUsuario.html";
+          }, 1000); // apenas para exibir o loading
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        resposta.text().then(texto => {
+          console.error(texto);
+          // finalizarAguardar(texto);
+        });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+      alert(`Redirecionando para tela de usuario...`)
+    })
+
+    return false;
+  }
+</script>
+
+<script>
+  
+  // Pega o popup
+  var popup = document.getElementById("meuPopup");
+
+  // Pega o link que abre o popup
+  var link = document.getElementById("popupLink");
+
+  // Pega o <span> que fecha o popup
+  var span = document.getElementsByClassName("close-popup")[0];
+
+  // Quando o usuário clicar no link, abre o popup
+  link.onclick = function () {
+    popup.style.display = "block";
+  }
+
+  // Quando o usuário clicar no <span> (x), fecha o popup
+  span.onclick = function () {
+    popup.style.display = "none";
+  }
+
 </script>

@@ -63,7 +63,7 @@ function cadastrar(req, res) {
                 function (resultado) {
                     res.json(resultado);
                 }
-            //requisição não funcionou
+                //requisição não funcionou
             ).catch(
                 function (erro) {
                     console.log(erro);
@@ -77,7 +77,31 @@ function cadastrar(req, res) {
     }
 }
 
+
+function feedback(req, res) {
+    var email = req.body.emailServer;
+    var userName =  req.body.userServer;
+    var texto =  req.body.textoServer;
+    var fkUsuarioFeed =   req.body.fkUsuarioFeedServer;
+
+    /* enviando as respostas para o banco */
+    usuarioModel.enviarFeedback(email, userName, texto, fkUsuarioFeed)
+        .then(
+            function (resultado) {
+                res.json(resultado);    
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao enviar o feedback! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    feedback
 }

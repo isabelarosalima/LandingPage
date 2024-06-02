@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="CSS/cadastro.css">
   <link rel="stylesheet" href="JS/cadastroLogin.js">
+  <link rel="stylesheet" href="CSS/popUp.css">
 </head>
+
 <body>
-  <a href="login.html"><img src="assets/icons/seta-para-a-esquerda.png" alt="" ></a>
+  <a id="popupLink"><img src="assets/icons/seta-para-a-esquerda.png" alt=""></a>
+
+  <!-- Popup -->
+  <div id="meuPopup" class="popup">
+    <div class="popup-content">
+      <span class="close-popup">x</span>
+      <p>Para ter acesso ao site, é preciso criar uma conta e logar, caso contrário, não terá acesso ao mesmo!</p>
+    </div>
+  </div>
+
+
   <!--a div ring começa aqui-->
   <div class="ring">
     <i style="--clr:#ff00d4;"></i>
@@ -43,108 +56,108 @@
       <div id="mensagemErroSenha">mensagem</div>
 
       <div class="inputBx">
-        <input type="submit" onclick="cadastrar()" value="CADASTRAR" >
+        <input type="submit" onclick="cadastrar()" value="CADASTRAR">
       </div>
 
       <div class="links">
-        <p>Já possui conta? <a href="login.html" style="margin-left: 2px;">logar</a> </p> 
+        <p>Já possui conta? <a href="login.html" style="margin-left: 2px;">logar</a> </p>
       </div>
 
     </div>
   </div>
 </body>
+
 </html>
 <script>
-// Seleção dos elementos do DOM para facilitar o acesso e a manipulação desses elementos
-const nomeCompleto = document.getElementById('input_nomeCompleto');
-const userName = document.getElementById('input_userName');
-const email = document.getElementById('input_email');
-const senha = document.getElementById('input_senha');
+  // Seleção dos elementos do DOM para facilitar o acesso e a manipulação desses elementos
+  const nomeCompleto = document.getElementById('input_nomeCompleto');
+  const userName = document.getElementById('input_userName');
+  const email = document.getElementById('input_email');
+  const senha = document.getElementById('input_senha');
 
-let validNome = false;
-let validUser = false;
-let validEmail = false;
-let validSenha = false;
+  let validNome = false;
+  let validUser = false;
+  let validEmail = false;
+  let validSenha = false;
 
-nomeCompleto.addEventListener('keyup', () => {
-    if(nomeCompleto.value.trim().length < 5){
+  nomeCompleto.addEventListener('keyup', () => {
+    if (nomeCompleto.value.trim().length < 5) {
       mensagemErroNome.setAttribute('style', 'color: #706f6f')
       mensagemErroNome.innerHTML = 'É preciso ter no mínimo 5 caracteres'
-        validNome = false
-    }else{
+      validNome = false
+    } else {
       mensagemErroNome.setAttribute('style', 'color: transparent')
       mensagemErroNome.innerHTML = 'correto'
-        validNome = true
+      validNome = true
     }
-})
+  })
 
-userName.addEventListener('keyup', () => {
-    if(userName.value.trim().length < 3 || userName.value == nomeCompleto.value || 
-    userName.value.trim() > 0){
+  userName.addEventListener('keyup', () => {
+    if (userName.value.trim().length < 3 || userName.value == nomeCompleto.value ||
+      userName.value.trim() > 0) {
       mensagemErroUser.setAttribute('style', 'color: #706f6f')
       mensagemErroUser.innerHTML = 'É preciso ser diferente do nome e ter no mínimo 3 caracteres'
       validUser = false
-    }else{
+    } else {
       mensagemErroUser.setAttribute('style', 'color: transparent')
       mensagemErroUser.innerHTML = `correto`
       validUser = true
     }
-})
+  })
 
-email.addEventListener('keyup', () => {
-    if(email.value.indexOf('@') == -1 || !email.value.endsWith(`.com`) || email.value.length < 10){
+  email.addEventListener('keyup', () => {
+    if (email.value.indexOf('@') == -1 || !email.value.endsWith(`.com`) || email.value.length < 10) {
       // mensagemErroNome.setAttribute('style', 'position: absolute')
       mensagemErroEmail.setAttribute('style', 'color: #706f6f')
       mensagemErroEmail.innerHTML = ' É preciso ter no mínimo 10 caracteres, @ e .com'
       validEmail = false
-    }else{
+    } else {
       mensagemErroEmail.setAttribute('style', 'color: transparent')
       mensagemErroEmail.innerHTML = `correto`
       validEmail = true
     }
-})
+  })
 
 
-senha.addEventListener('keyup', () => {
+  senha.addEventListener('keyup', () => {
     const senhaValor = senha.value;
     // estou utilizando REGEX (expressões regulares) são padrões usados para corresponder a combinações de caracteres em strings
-    const senhaValida = senhaValor.length >= 8 
-    && /[!@#$%^&*(),.?":{}|<>]/.test(senhaValor) && 
-    /[0-9]/.test(senhaValor);   
+    const senhaValida = senhaValor.length >= 8
+      && /[!@#$%^&*(),.?":{}|<>]/.test(senhaValor) &&
+      /[0-9]/.test(senhaValor);
     //O método test é usado para testar se a expressão regular encontra uma correspondência na string (variável senhaValida)              
 
-      // Verifica se a senha tem pelo menos 8 caracteres
-      // Verifica se a senha contém pelo menos um caractere especial
-      // Verifica se a senha contém pelo menos um número
+    // Verifica se a senha tem pelo menos 8 caracteres
+    // Verifica se a senha contém pelo menos um caractere especial
+    // Verifica se a senha contém pelo menos um número
 
     if (!senhaValida) {
-        mensagemErroSenha.setAttribute('style', 'color: #706f6f');
-        mensagemErroSenha.innerHTML = 'É preciso ter no mínimo 8 caracteres, 1 caractere especial e 1 número';
-        validSenha = false;
+      mensagemErroSenha.setAttribute('style', 'color: #706f6f');
+      mensagemErroSenha.innerHTML = 'É preciso ter no mínimo 8 caracteres, 1 caractere especial e 1 número';
+      validSenha = false;
     } else {
-        mensagemErroSenha.setAttribute('style', 'color: transparent');
-        mensagemErroSenha.innerHTML = 'Correto';
-        validSenha = true;
+      mensagemErroSenha.setAttribute('style', 'color: transparent');
+      mensagemErroSenha.innerHTML = 'Correto';
+      validSenha = true;
     }
-});
+  });
 
-function cadastrar() {
+  function cadastrar() {
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     const nomeCompletoValue = nomeCompleto.value.trim();
-    const userNameValue= userName.value.trim();
+    const userNameValue = userName.value.trim();
     const emailValue = email.value.trim();
     const senhaValue = senha.value.trim();
 
-    if(nomeCompletoValue == '' ||
-    userNameValue == '' || 
-    emailValue == '' || 
-    senhaValue == '' )
-    { 
+    if (nomeCompletoValue == '' ||
+      userNameValue == '' ||
+      emailValue == '' ||
+      senhaValue == '') {
       alert('Mensagem de erro para todos os campos em branco');
       // finalizarAguardar();
       return false;
-    } 
+    }
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -159,10 +172,10 @@ function cadastrar() {
         userServer: userNameValue,
         emailServer: emailValue,
         senhaServer: senhaValue,
-  
+
       }),
     })
-    //caso funcionar minha req 
+      //caso funcionar minha req 
       .then(function (resposta) {
         console.log("resposta: ", resposta);
 
@@ -170,7 +183,7 @@ function cadastrar() {
           // cardErro.style.display = "block";
 
           alert(`Cadastro realizado com sucesso! Redirecionando para tela de Login...`)
-           
+
           setTimeout(() => {
             window.location = "login.html";
           }, "2000");
@@ -187,5 +200,29 @@ function cadastrar() {
 
     return false;
   }
+
+</script>
+
+<script>
+  // Pega o popup
+  var popup = document.getElementById("meuPopup");
+
+  // Pega o link que abre o popup
+  var link = document.getElementById("popupLink");
+
+  // Pega o <span> que fecha o popup
+  var span = document.getElementsByClassName("close-popup")[0];
+
+  // Quando o usuário clicar no link, abre o popup
+  link.onclick = function () {
+    popup.style.display = "block";
+  }
+
+  // Quando o usuário clicar no <span> (x), fecha o popup
+  span.onclick = function () {
+    popup.style.display = "none";
+  }
+
+
 
 </script>

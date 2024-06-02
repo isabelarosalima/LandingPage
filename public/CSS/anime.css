@@ -1,0 +1,177 @@
+.main-container{
+    height: 98vh;
+}
+.main-blog4 p{
+ color: transparent;
+}
+
+.main-blogs3{
+    position: relative;
+bottom: 350px;
+}
+
+.foto{
+    background-image: url(https://th.bing.com/th/id/OIP.TsS3RVlgje9qSUFrwsmpYAHaEK?w=720&h=405&rs=1&pid=ImgDetMain);
+    background-size: 470px;
+}
+.foto2{
+
+    background-image: url(https://cafecomnerd.com.br/wp-content/uploads/2022/09/Cyberpunk-Mercenarios-Trailer-Serie-Anime-Netflix-imagem3.jpg);
+    background-size: 470px;
+}
+
+.foto3{
+    background-image: url(https://cafecomnerd.com.br/wp-content/uploads/2022/09/Cyberpunk-Mercenarios-Trailer-Serie-Anime-Netflix-imagem5.jpg);
+    background-size: 470px;
+}
+
+.foto4{
+    background-image: url(https://c.wallhere.com/photos/ab/ef/Cyberpunk_Edgerunners_anime_4K_anime_girls_anime_boys_Anime_screenshot_Lucy_Edgerunners_David_Martinez_Edgerunners-2216596.jpg!s1);
+    background-size: 470px;
+}
+.main-blog11 {
+   color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://criticalhits.com.br/wp-content/uploads/2022/09/maxresdefault-8-1.jpg);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 360px;
+    position: relative;
+    bottom: 320px;
+    left: 650;
+  } .main-blog11:hover{
+   background-color: rgb(167, 134, 4);
+   background-image: none;
+   transition: all .4s ease;
+   color: rgb(220, 220, 220);
+  }
+
+  .main-blog12 {
+    color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://criticalhits.com.br/wp-content/uploads/2022/09/Cyberpunk-Edgerunners-Maine-Scre-910x512.jpg);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 400px;
+    position: relative;
+    bottom: 270px;
+    left: 340;
+  } .main-blog12:hover{
+    background-color: rgb(211, 110, 15);
+    background-image: none;
+    transition: all .4s ease;
+    color: rgb(220, 220, 220);
+   }
+ 
+
+  .main-blog13 {
+    color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://criticalhits.com.br/wp-content/uploads/2022/09/90479329af57096a7ced30f3a22bbbe2-910x512.jpg);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 400px;
+    position: relative;
+    bottom: 720px;
+    left: 30;
+  } .main-blog13:hover{
+    background-color: rgb(126, 13, 118);
+    background-image: none;
+    transition: all .4s ease;
+    color: rgb(220, 220, 220);
+   }
+ 
+  .main-blog14 {
+    color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://criticalhits.com.br/wp-content/uploads/2022/09/cyberpunk-edgerunners-rebecca-910x455.jpg);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 400px;
+    position: relative;
+    bottom: 670px;
+    left: 650;
+  }.main-blog14:hover{
+    background-color: rgb(13, 126, 73);
+    background-image: none;
+    transition: all .4s ease;
+    color: rgb(220, 220, 220);
+   }
+ 
+
+  .main-blog15 {
+    color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://criticalhits.com.br/wp-content/uploads/2022/09/maxresdefault-9-910x512.jpg);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 400px;
+    position: relative;
+    bottom: 1120px;
+    left: 340;
+  } .main-blog15:hover{
+    background-color: rgb(161, 23, 94);
+    background-image: none;
+    transition: all .4s ease;
+    color: rgb(220, 220, 220);
+   }
+ 
+
+  .main-blog16 {
+    color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://criticalhits.com.br/wp-content/uploads/2022/09/Cyberpunk-Edgerunner-910x512.jpg);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 400px;
+    position: relative;
+    bottom: 1070px;
+    left: 30;
+  }.main-blog16:hover{
+    background-color: rgb(19, 74, 136);
+    background-image: none;
+    transition: all .4s ease;
+    color: rgb(220, 220, 220);
+   }
+ 
+
+    .main-blogs3 span{
+        position: relative;
+        font-family: MFF;
+        font-size: 19px;
+        color: rgb(170, 170, 170);
+        text-shadow: 2px 0 0  rgb(133, 133, 133) ;
+        bottom: 360px;
+        left: 310px;
+    }
+    

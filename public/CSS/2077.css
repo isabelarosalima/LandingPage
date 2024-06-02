@@ -1,0 +1,153 @@
+.main-container{
+    height: 98vh;
+}
+.main-blog4 p{
+ color: transparent;
+}
+
+.main-blogs3{
+    position: relative;
+bottom: 350px;
+}
+
+.foto{
+    background-image: url(https://cdn.mos.cms.futurecdn.net/rLh7Dh7EKo8F6zmDtXYp8W.jpg);
+    background-size: 470px;
+}
+.foto2{
+
+    background-image: url(https://th.bing.com/th/id/R.69862f100ad25e5cc4064e5fa44d6219?rik=EvlpzpnC0VRnkg&pid=ImgRaw&r=0);
+    background-size: 470px;
+}
+
+.foto3{
+    background-image: url(https://th.bing.com/th/id/R.69c395c070840df350b413b2acb2620a?rik=FpG3qfx%2blswJoQ&pid=ImgRaw&r=0);
+    background-size: 470px;
+}
+
+.foto4{
+    background-image: url(https://th.bing.com/th/id/OIP.W_11isSHgoSOHfx_o3yNawHaEK?rs=1&pid=ImgDetMain);
+    background-size: 470px;
+}
+.main-blog11 {
+   color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://pop.proddigital.com.br/wp-content/uploads/sites/8/2021/09/johnny-silverhand.jpg);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 360px;
+    position: relative;
+    bottom: 320px;
+    left: 650;
+  } .main-blog11:hover{
+   background-color: rgb(167, 134, 4);
+   background-image: none;
+   transition: all .4s ease;
+   color: rgb(220, 220, 220);
+  }
+
+  .main-blog12 {
+    color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://pop.proddigital.com.br/wp-content/uploads/sites/8/2021/09/judy-alvarez.jpg);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 400px;
+    position: relative;
+    bottom: 270px;
+    left: 150;
+  } .main-blog12:hover{
+    background-color: rgb(211, 110, 15);
+    background-image: none;
+    transition: all .4s ease;
+    color: rgb(220, 220, 220);
+   }
+ 
+
+  .main-blog13 {
+    color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://pop.proddigital.com.br/wp-content/uploads/sites/8/2021/09/jaquito-welles.png);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 400px;
+    position: relative;
+    bottom: 720px;
+    left: 30;
+  } .main-blog13:hover{
+    background-color: rgb(126, 13, 118);
+    background-image: none;
+    transition: all .4s ease;
+    color: rgb(220, 220, 220);
+   }
+ 
+  .main-blog14 {
+    color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://pop.proddigital.com.br/wp-content/uploads/sites/8/2021/09/panam-palmer.jpg);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 400px;
+    position: relative;
+    bottom: 670px;
+    left: 470;
+  }.main-blog14:hover{
+    background-color: rgb(13, 126, 73);
+    background-image: none;
+    transition: all .4s ease;
+    color: rgb(220, 220, 220);
+   }
+ 
+
+  .main-blog15 {
+    color: transparent;
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    background-image: url(https://pop.proddigital.com.br/wp-content/uploads/sites/8/2021/09/valerie-vincent.png);
+    height: 200px;
+    width: 30%;
+    padding: 30px;
+    border-radius: 20px;
+    background-position: center center;
+    background-size: 400px;
+    position: relative;
+    bottom: 1120px;
+    left: 340;
+  } .main-blog15:hover{
+    background-color: rgb(161, 23, 94);
+    background-image: none;
+    transition: all .4s ease;
+    color: rgb(220, 220, 220);
+   }
+ 
+    .main-blogs3 span{
+        position: relative;
+        font-family: MFF;
+        font-size: 19px;
+        color: rgb(170, 170, 170);
+        text-shadow: 2px 0 0  rgb(133, 133, 133) ;
+        bottom: 360px;
+        left: 310px;
+    }
+    

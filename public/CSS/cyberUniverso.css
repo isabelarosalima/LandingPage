@@ -1,0 +1,65 @@
+.textoUniverso{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    width: 950px;
+    color: rgb(189, 189, 189);
+    text-transform: uppercase;
+    font-size: 16px;
+    flex-direction: column;
+}
+.textoUniverso p{
+    font-family: MFF;
+    text-shadow: 2px 0 0 gray;
+}
+
+.textoUniverso span{
+   margin-bottom: 20px;
+   margin-left: 10px;
+}
+
+.foto{
+    background-image: url(https://viltoreis.com/wp-content/uploads/2020/05/donglu-yu-cyberpunk-demo-closeup01.jpg);
+    background-size: 650px;
+    background-position-x: 0px;
+    height: 150px;
+}
+
+.foto2{
+    background-image: url(https://external-preview.redd.it/VhMW1Pe3oqofBUMVmxFTPqWkdp5CqhiKpxE4RIR-3OM.jpg?auto=webp&s=c1969624cf36800dbccbcfe979b8326dffea69b4);
+    background-size: 630px;
+    background-position-x: 0px;
+    height: 150px;
+    /* background-position-y: 0px ; */
+}
+
+.main-blog+.main-blog {
+    margin-left: 20px;
+    width: 35%;
+    background-image: url("https://th.bing.com/th/id/R.87ef8819217e7eec4a0ad3c001b4decb?rik=UB6lC8BaATt0MA&pid=ImgRaw&r=0");
+    background-color: rgb(239, 19, 162);
+    background-position-x: 0px;
+    background-position-y: 338px;
+    background-size: 100%;
+  
+  }
+
+  .main-blog+.main-blog1 {
+    margin-left: 20px;
+    margin-bottom: 30px;
+    width: 35%;
+    height: 150px;
+    border-radius: 20px;
+    background-image: url("https://wallpaperaccess.com/full/769517.png");
+    background-position-x: 80px;
+    background-position-y: 338px;
+    background-size: 100%;
+    transition: all .5s ease;
+  }
+
+  
+  .main-blog+.main-blog1:hover {
+    box-shadow: 4px 2px 10px rgba(88, 9, 88, 0.8); 
+    
+  }

@@ -779,3 +779,48 @@ text-shadow: 2px 0 0 #4c6576;
     text-shadow: 2px 0 0 rgb(131, 49, 105);
    
   }
+
+  .mainJogo span{
+    position: relative;
+    font-family: MFF;
+    top: 110px;
+    left: 110px;
+    color: rgb(185, 185, 185);
+  }
+
+  .mainJogo2 span{
+    position: relative;
+    font-family: MFF;
+    top: 110px;
+    left: 150px;
+    color:  rgb(185, 185, 185);
+  }
+
+  .mainJogo p{
+    margin-top: 100px;
+    position: relative;
+    font-family: RH;
+    font-size: 17px;
+    font-weight: 700;
+    width: 250px;
+    text-align: center;
+    text-transform: uppercase;
+    top: 50px;
+    left: 110px;
+    color:  rgb(170, 170, 170);
+  }
+
+  
+  .mainJogo2 p{
+    margin-top: 100px;
+    position: relative;
+    font-family: RH;
+    font-size: 16px;
+    font-weight: 700;
+    width: 250px;
+    text-align: center;
+    text-transform: uppercase;
+    top: 50px;
+    left: 110px;
+    color:   rgb(170, 170, 170);
+  }
